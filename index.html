@@ -27,11 +27,12 @@
       </h1>
     </header>
     <main>
-      <div class="card socials-active">
+      <!-- <div class="card socials-active"> -->
+      <div class="card">
         <img
           class="card__image"
           src="./src/assets/drawers.jpg"
-          alt="an image of a vase and picture frames standing ona green drawer"
+          alt="an image of a vase and two picture frames standing on a green drawer"
         />
         <div class="card__text">
           <h2 class="card__text__heading">
@@ -48,14 +49,17 @@
           <img
             class="card__user__img"
             src="src/assets/avatar-michelle.jpg"
-            aria-labelledby=".card__user-name"
+            aria-labelledby=".card__user__name"
           />
           <span>
             <p class="card__user__name">Michelle Appleton</p>
             <p class="card__user__date">28 Jun 2020</p>
           </span>
-          <button class="card__user__share-button">
-            <img src="src/assets/icon-share.svg" alt="share on social media" />
+          <button
+            class="card__user__share-button"
+            aria-label="share on social media"
+          >
+            <img src="src/assets/icon-share.svg" alt="" />
           </button>
         </div>
         <div class="card__socials">
