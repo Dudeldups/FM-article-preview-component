@@ -12,55 +12,85 @@ body {
 }
 
 .card {
+  $card-side-padding: 2rem;
+
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   overflow: hidden;
 
-  &__info {
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 4em 1fr 4em;
-    grid-template-areas:
-      "heading heading heading"
-      "desc desc desc"
-      "img name btn"
-      "img date btn";
-    padding: 2rem;
+  &__image {
+  }
+
+  &__text {
+    padding: 1.5rem $card-side-padding;
 
     &__heading {
-      grid-area: heading;
-      margin-top: 0.25rem;
+      margin-top: 0.75rem;
       color: colors.$dark-blue;
       font-size: 1rem;
       font-weight: 700;
     }
 
     &__description {
-      grid-area: desc;
-      margin-bottom: 1rem;
+      margin-top: 1rem;
       color: colors.$not-so-dark-blue;
     }
+  }
 
-    &__user-img {
-      grid-area: img;
+  &__user {
+    display: flex;
+    align-items: center;
+    padding: 1rem $card-side-padding;
+
+    &__img {
       border-radius: 50%;
+      height: 3.25em;
+      margin-right: 1rem;
     }
 
-    &__user-name {
-      grid-area: name;
+    &__name {
       color: colors.$dark-blue;
       font-weight: 700;
     }
-    &__user-date {
-      grid-area: date;
+
+    &__date {
       color: colors.$rather-light-blue;
     }
+
     &__share-button {
-      grid-area: btn;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: auto;
+      background-color: colors.$light-blue;
+      border-radius: 50%;
+      height: 2.5em;
+      aspect-ratio: 1 / 1;
     }
-    &__socials {
-      display: none;
-      grid-area: socials;
+
+    .socials-active & {
+    }
+  }
+
+  &__socials {
+    background-color: colors.$dark-blue;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25em;
+
+    &__text {
+      color: colors.$rather-light-blue;
+      letter-spacing: 0.4em;
+    }
+
+    &__link:hover {
+      scale: 1.15;
+    }
+
+    .socials-active & {
+      transform: translateY(-100%);
     }
   }
 }

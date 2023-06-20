@@ -76,45 +76,64 @@ body {
 
 .card {
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.8rem;
   overflow: hidden;
 }
-.card__info {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 4em 1fr 4em;
-  grid-template-areas: "heading heading heading" "desc desc desc" "img name btn" "img date btn";
-  padding: 2rem;
+.card__text {
+  padding: 1.5rem 2rem;
 }
-.card__info__heading {
-  grid-area: heading;
-  margin-top: 0.25rem;
+.card__text__heading {
+  margin-top: 0.75rem;
   color: hsl(217, 19%, 35%);
   font-size: 1rem;
   font-weight: 700;
 }
-.card__info__description {
-  grid-area: desc;
-  margin-bottom: 1rem;
+.card__text__description {
+  margin-top: 1rem;
   color: hsl(214, 17%, 51%);
 }
-.card__info__user-img {
-  grid-area: img;
-  border-radius: 50%;
+.card__user {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
 }
-.card__info__user-name {
-  grid-area: name;
+.card__user__img {
+  border-radius: 50%;
+  height: 3.25em;
+  margin-right: 1rem;
+}
+.card__user__name {
   color: hsl(217, 19%, 35%);
   font-weight: 700;
 }
-.card__info__user-date {
-  grid-area: date;
+.card__user__date {
   color: hsl(212, 23%, 69%);
 }
-.card__info__share-button {
-  grid-area: btn;
+.card__user__share-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  background-color: hsl(210, 46%, 95%);
+  border-radius: 50%;
+  height: 2.5em;
+  aspect-ratio: 1/1;
 }
-.card__info__socials {
-  display: none;
-  grid-area: socials;
+.card__socials {
+  background-color: hsl(217, 19%, 35%);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25em;
+}
+.card__socials__text {
+  color: hsl(212, 23%, 69%);
+  letter-spacing: 0.4em;
+}
+.card__socials__link:hover {
+  scale: 1.15;
+}
+.socials-active .card__socials {
+  transform: translateY(-100%);
 }/*# sourceMappingURL=main.css.map */
