@@ -19,7 +19,9 @@ body {
   overflow: hidden;
   position: relative;
 
-  &__image {
+  &__aside {
+    max-height: 13rem;
+    overflow: hidden;
   }
 
   &__text {
@@ -72,6 +74,10 @@ body {
 
       .socials-active & {
         background-color: colors.$not-so-dark-blue;
+      }
+
+      .socials-active & path {
+        fill: white;
       }
     }
   }

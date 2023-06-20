@@ -80,6 +80,10 @@ body {
   overflow: hidden;
   position: relative;
 }
+.card__aside {
+  max-height: 13rem;
+  overflow: hidden;
+}
 .card__text {
   padding: 1.5rem 2rem;
 }
@@ -124,6 +128,9 @@ body {
 }
 .socials-active .card__user__share-button {
   background-color: hsl(214, 17%, 51%);
+}
+.socials-active .card__user__share-button path {
+  fill: white;
 }
 .card__socials {
   position: absolute;
