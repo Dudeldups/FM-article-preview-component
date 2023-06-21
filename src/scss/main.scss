@@ -1,5 +1,6 @@
 @use "resets";
 @use "colors";
+@use "mixins" as *;
 
 body {
   font: 0.8125rem "Manrope", sans-serif;
@@ -11,27 +12,63 @@ body {
   line-height: 1.5;
 }
 
+main {
+  max-width: 30rem;
+
+  @include mq(46.875em) {
+    max-width: unset;
+  }
+}
+
 .card {
-  $card-side-padding: 2rem;
+  $card-side-padding: 0.8rem;
+  $card-side-padding: clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
 
   background-color: white;
   border-radius: 0.8rem;
+  box-shadow: 0 0.5em 2em rgba(black, 0.3);
   overflow: hidden;
   position: relative;
 
+  @include mq(46.875em) {
+    position: unset;
+    display: grid;
+    grid-template-areas:
+      "img text"
+      "img user";
+    grid-template-columns: 1fr 1.55fr;
+  }
+
   &__aside {
-    max-height: 13rem;
+    max-height: 57vw;
     overflow: hidden;
+
+    @include mq(46.875em) {
+      grid-area: img;
+      max-height: unset;
+
+      & img {
+        min-height: 100%;
+      }
+    }
   }
 
   &__text {
     padding: 1.5rem $card-side-padding;
+
+    @include mq(46.875em) {
+      grid-area: text;
+    }
 
     &__heading {
       margin-top: 0.75rem;
       color: colors.$dark-blue;
       font-size: 1rem;
       font-weight: 700;
+
+      @include mq(46.875em) {
+        font-size: 1.25rem;
+      }
     }
 
     &__description {
@@ -44,6 +81,10 @@ body {
     display: flex;
     align-items: center;
     padding: 1rem $card-side-padding;
+
+    @include mq(46.875em) {
+      grid-area: user;
+    }
 
     &__img {
       border-radius: 50%;
@@ -72,6 +113,10 @@ body {
       aspect-ratio: 1 / 1;
       z-index: 2;
 
+      @include mq(46.875em) {
+        position: relative;
+      }
+
       .socials-active & {
         background-color: colors.$not-so-dark-blue;
       }
@@ -85,14 +130,19 @@ body {
   &__socials {
     position: absolute;
     background-color: colors.$dark-blue;
-    padding: 1.6rem 2rem;
+    padding: 1.6rem $card-side-padding;
     display: flex;
     align-items: center;
-    gap: 1.25em;
+    gap: 1.2em;
+
+    @include mq(31.25em) {
+      justify-content: center;
+    }
 
     &__text {
       color: colors.$rather-light-blue;
       letter-spacing: 0.4em;
+      text-transform: uppercase;
     }
 
     &__link:hover {
@@ -103,6 +153,12 @@ body {
       bottom: 0;
       left: 0;
       right: 0;
+
+      @include mq(46.875em) {
+        top: -1rem;
+        left: 50%;
+        right: unset;
+      }
     }
   }
 }

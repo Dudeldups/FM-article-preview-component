@@ -66,7 +66,7 @@ button {
 }
 body {
   font: 0.8125rem "Manrope", sans-serif;
-  background-color: hsl(210, 46%, 95%);
+  background-color: #ecf2f8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,33 +74,75 @@ body {
   line-height: 1.5;
 }
 
+main {
+  max-width: 30rem;
+}
+@media only screen and (min-width: 46.875em) {
+  main {
+    max-width: unset;
+  }
+}
+
 .card {
   background-color: white;
   border-radius: 0.8rem;
+  box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
 }
+@media only screen and (min-width: 46.875em) {
+  .card {
+    position: unset;
+    display: grid;
+    grid-template-areas: "img text" "img user";
+    grid-template-columns: 1fr 1.55fr;
+  }
+}
 .card__aside {
-  max-height: 13rem;
+  max-height: 57vw;
   overflow: hidden;
 }
+@media only screen and (min-width: 46.875em) {
+  .card__aside {
+    grid-area: img;
+    max-height: unset;
+  }
+  .card__aside img {
+    min-height: 100%;
+  }
+}
 .card__text {
-  padding: 1.5rem 2rem;
+  padding: 1.5rem clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
+}
+@media only screen and (min-width: 46.875em) {
+  .card__text {
+    grid-area: text;
+  }
 }
 .card__text__heading {
   margin-top: 0.75rem;
-  color: hsl(217, 19%, 35%);
+  color: #48556a;
   font-size: 1rem;
   font-weight: 700;
 }
+@media only screen and (min-width: 46.875em) {
+  .card__text__heading {
+    font-size: 1.25rem;
+  }
+}
 .card__text__description {
   margin-top: 1rem;
-  color: hsl(214, 17%, 51%);
+  color: #6d7f97;
 }
 .card__user {
   display: flex;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 1rem clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
+}
+@media only screen and (min-width: 46.875em) {
+  .card__user {
+    grid-area: user;
+  }
 }
 .card__user__img {
   border-radius: 50%;
@@ -108,11 +150,11 @@ body {
   margin-right: 1rem;
 }
 .card__user__name {
-  color: hsl(217, 19%, 35%);
+  color: #48556a;
   font-weight: 700;
 }
 .card__user__date {
-  color: hsl(212, 23%, 69%);
+  color: #9eafc2;
 }
 .card__user__share-button {
   cursor: pointer;
@@ -120,29 +162,40 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  background-color: hsl(210, 46%, 95%);
+  background-color: #ecf2f8;
   border-radius: 50%;
   height: 2.5em;
   aspect-ratio: 1/1;
   z-index: 2;
 }
+@media only screen and (min-width: 46.875em) {
+  .card__user__share-button {
+    position: relative;
+  }
+}
 .socials-active .card__user__share-button {
-  background-color: hsl(214, 17%, 51%);
+  background-color: #6d7f97;
 }
 .socials-active .card__user__share-button path {
   fill: white;
 }
 .card__socials {
   position: absolute;
-  background-color: hsl(217, 19%, 35%);
-  padding: 1.6rem 2rem;
+  background-color: #48556a;
+  padding: 1.6rem clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
   display: flex;
   align-items: center;
-  gap: 1.25em;
+  gap: 1.2em;
+}
+@media only screen and (min-width: 31.25em) {
+  .card__socials {
+    justify-content: center;
+  }
 }
 .card__socials__text {
-  color: hsl(212, 23%, 69%);
+  color: #9eafc2;
   letter-spacing: 0.4em;
+  text-transform: uppercase;
 }
 .card__socials__link:hover {
   scale: 1.15;
@@ -151,4 +204,11 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
+}
+@media only screen and (min-width: 46.875em) {
+  .socials-active .card__socials {
+    top: -1rem;
+    left: 50%;
+    right: unset;
+  }
 }/*# sourceMappingURL=main.css.map */
