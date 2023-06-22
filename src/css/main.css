@@ -71,6 +71,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 3rem 1.7rem;
+  padding-inline: 0.8rem;
+  padding-inline: clamp(0.8rem, -4.4363636364rem + 26.1818181818vw, 1.7rem);
   line-height: 1.5;
 }
 
@@ -79,7 +81,7 @@ main {
 }
 @media only screen and (min-width: 46.875em) {
   main {
-    max-width: unset;
+    max-width: 55em;
   }
 }
 
@@ -88,18 +90,16 @@ main {
   border-radius: 0.8rem;
   box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  position: relative;
 }
 @media only screen and (min-width: 46.875em) {
   .card {
-    position: unset;
     display: grid;
     grid-template-areas: "img text" "img user";
     grid-template-columns: 1fr 1.55fr;
   }
 }
 .card__aside {
-  max-height: 57vw;
+  max-height: min(57vw, 22em);
   overflow: hidden;
 }
 @media only screen and (min-width: 46.875em) {
@@ -108,11 +108,15 @@ main {
     max-height: unset;
   }
   .card__aside img {
-    min-height: 100%;
+    height: 100%;
+    -o-object-position: 0;
+       object-position: 0;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 .card__text {
-  padding: 1.5rem clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
+  padding: 1.5rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
 }
 @media only screen and (min-width: 46.875em) {
   .card__text {
@@ -137,7 +141,8 @@ main {
 .card__user {
   display: flex;
   align-items: center;
-  padding: 1rem clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
+  padding: 0.8rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
+  position: relative;
 }
 @media only screen and (min-width: 46.875em) {
   .card__user {
@@ -168,11 +173,6 @@ main {
   aspect-ratio: 1/1;
   z-index: 2;
 }
-@media only screen and (min-width: 46.875em) {
-  .card__user__share-button {
-    position: relative;
-  }
-}
 .socials-active .card__user__share-button {
   background-color: #6d7f97;
 }
@@ -182,12 +182,12 @@ main {
 .card__socials {
   position: absolute;
   background-color: #48556a;
-  padding: 1.6rem clamp(0.8rem, -6.1818rem + 34.9091vw, 2rem);
+  padding: 1.6rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
   display: flex;
   align-items: center;
   gap: 1.2em;
 }
-@media only screen and (min-width: 31.25em) {
+@media only screen and (min-width: 33em) {
   .card__socials {
     justify-content: center;
   }
@@ -201,14 +201,11 @@ main {
   scale: 1.15;
 }
 .socials-active .card__socials {
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
 }
 @media only screen and (min-width: 46.875em) {
   .socials-active .card__socials {
-    top: -1rem;
-    left: 50%;
-    right: unset;
+    inset: unset;
+    right: 0;
   }
 }/*# sourceMappingURL=main.css.map */
