@@ -16,6 +16,10 @@ body {
     1.7rem
   );
   line-height: 1.5;
+
+  @include mq(52.5em) {
+    margin-inline: 4.5rem;
+  }
 }
 
 main {
@@ -23,7 +27,6 @@ main {
 
   @include mq(52.5em) {
     max-width: 55em;
-    margin: 4.5rem;
   }
 }
 
@@ -125,6 +128,10 @@ main {
       aspect-ratio: 1 / 1;
       z-index: 2;
 
+      & * {
+        pointer-events: none;
+      }
+
       .socials-active & {
         background-color: colors.$not-so-dark-blue;
       }
@@ -136,7 +143,11 @@ main {
   }
 
   &__socials {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 600ms;
     position: absolute;
+    inset: 0;
     background-color: colors.$dark-blue;
     padding: 1rem $card-side-padding;
     display: flex;
@@ -144,23 +155,25 @@ main {
     gap: 1.2em;
     border-bottom-left-radius: 0.8rem;
     border-bottom-right-radius: 0.8rem;
-
-    @include mq(33em) {
-      justify-content: center;
-    }
-
-    &__text {
-      color: colors.$rather-light-blue;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-    }
-
-    &__link:hover {
-      scale: 1.15;
-    }
+    user-select: none;
 
     .socials-active & {
-      inset: 0;
+      visibility: unset;
+      opacity: 1;
+
+      @include mq(33em) {
+        justify-content: center;
+      }
+
+      &__text {
+        color: colors.$rather-light-blue;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+      }
+
+      &__link:hover {
+        scale: 1.15;
+      }
 
       @include mq(52.5em) {
         inset: unset;
