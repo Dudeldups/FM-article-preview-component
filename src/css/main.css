@@ -79,19 +79,19 @@ body {
 main {
   max-width: 30rem;
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   main {
     max-width: 55em;
+    margin: 4.5rem;
   }
 }
 
 .card {
   background-color: white;
   border-radius: 0.8rem;
-  box-shadow: 0 0.5em 2em rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  box-shadow: 0 2em 2.5em -2em rgba(0, 0, 0, 0.2);
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   .card {
     display: grid;
     grid-template-areas: "img text" "img user";
@@ -100,12 +100,16 @@ main {
 }
 .card__aside {
   max-height: min(57vw, 22em);
+  border-top-right-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
   overflow: hidden;
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   .card__aside {
     grid-area: img;
     max-height: unset;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0.8rem;
   }
   .card__aside img {
     height: 100%;
@@ -118,7 +122,7 @@ main {
 .card__text {
   padding: 1.5rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   .card__text {
     grid-area: text;
   }
@@ -129,7 +133,7 @@ main {
   font-size: 1rem;
   font-weight: 700;
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   .card__text__heading {
     font-size: 1.25rem;
   }
@@ -144,9 +148,10 @@ main {
   padding: 0.8rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
   position: relative;
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   .card__user {
     grid-area: user;
+    padding: 0 clamp(1rem, -4.8181rem + 29.0909vw, 2rem) 2rem;
   }
 }
 .card__user__img {
@@ -169,7 +174,7 @@ main {
   margin-left: auto;
   background-color: #ecf2f8;
   border-radius: 50%;
-  height: 2.5em;
+  height: 2.5rem;
   aspect-ratio: 1/1;
   z-index: 2;
 }
@@ -182,10 +187,12 @@ main {
 .card__socials {
   position: absolute;
   background-color: #48556a;
-  padding: 1.6rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
+  padding: 1rem clamp(1rem, -4.8181rem + 29.0909vw, 2rem);
   display: flex;
   align-items: center;
   gap: 1.2em;
+  border-bottom-left-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
 }
 @media only screen and (min-width: 33em) {
   .card__socials {
@@ -203,9 +210,25 @@ main {
 .socials-active .card__socials {
   inset: 0;
 }
-@media only screen and (min-width: 46.875em) {
+@media only screen and (min-width: 52.5em) {
   .socials-active .card__socials {
     inset: unset;
-    right: 0;
+    border-radius: 0.5rem;
+    right: calc(clamp(1rem, -4.8181rem + 29.0909vw, 2rem) + 1.25rem);
+    top: -108%;
+    transform: translateX(50%);
+    z-index: 2;
+  }
+  .socials-active .card__socials::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: 98%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 0.85rem solid transparent;
+    border-right: 0.85rem solid transparent;
+    border-top: 0.85rem solid #48556a;
   }
 }/*# sourceMappingURL=main.css.map */
