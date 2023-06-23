@@ -194,7 +194,7 @@ main {
 .card__socials {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 600ms;
+  transition: visibility 0s 600ms, opacity 600ms;
   position: absolute;
   inset: 0;
   background-color: #48556a;
@@ -208,25 +208,21 @@ main {
      -moz-user-select: none;
           user-select: none;
 }
-.socials-active .card__socials {
-  visibility: unset;
-  opacity: 1;
-}
 @media only screen and (min-width: 33em) {
-  .socials-active .card__socials {
+  .card__socials {
     justify-content: center;
   }
 }
-.socials-active .card__socials__text {
+.card__socials__text {
   color: #9eafc2;
   letter-spacing: 0.4em;
   text-transform: uppercase;
 }
-.socials-active .card__socials__link:hover {
+.card__socials__link:hover {
   scale: 1.15;
 }
 @media only screen and (min-width: 52.5em) {
-  .socials-active .card__socials {
+  .card__socials {
     inset: unset;
     border-radius: 0.5rem;
     right: calc(clamp(1rem, -4.8181rem + 29.0909vw, 2rem) + 1.25rem);
@@ -234,7 +230,7 @@ main {
     transform: translateX(50%);
     z-index: 2;
   }
-  .socials-active .card__socials::after {
+  .card__socials::after {
     content: "";
     position: absolute;
     width: 0;
@@ -246,4 +242,9 @@ main {
     border-right: 0.85rem solid transparent;
     border-top: 0.85rem solid #48556a;
   }
+}
+.socials-active .card__socials {
+  visibility: unset;
+  opacity: 1;
+  transition: opacity 600ms;
 }/*# sourceMappingURL=main.css.map */

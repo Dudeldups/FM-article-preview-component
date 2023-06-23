@@ -145,7 +145,7 @@ main {
   &__socials {
     visibility: hidden;
     opacity: 0;
-    transition: opacity 600ms;
+    transition: visibility 0s 600ms, opacity 600ms;
     position: absolute;
     inset: 0;
     background-color: colors.$dark-blue;
@@ -157,45 +157,46 @@ main {
     border-bottom-right-radius: 0.8rem;
     user-select: none;
 
+    @include mq(33em) {
+      justify-content: center;
+    }
+
+    &__text {
+      color: colors.$rather-light-blue;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+    }
+
+    &__link:hover {
+      scale: 1.15;
+    }
+
+    @include mq(52.5em) {
+      inset: unset;
+      border-radius: 0.5rem;
+      right: calc($card-side-padding + 1.25rem);
+      top: -108%;
+      transform: translateX(50%);
+      z-index: 2;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 98%; //fix weird 1px gap :(
+        left: 50%;
+        transform: translateX(-50%);
+        border-left: 0.85rem solid transparent;
+        border-right: 0.85rem solid transparent;
+        border-top: 0.85rem solid colors.$dark-blue;
+      }
+    }
+
     .socials-active & {
       visibility: unset;
       opacity: 1;
-
-      @include mq(33em) {
-        justify-content: center;
-      }
-
-      &__text {
-        color: colors.$rather-light-blue;
-        letter-spacing: 0.4em;
-        text-transform: uppercase;
-      }
-
-      &__link:hover {
-        scale: 1.15;
-      }
-
-      @include mq(52.5em) {
-        inset: unset;
-        border-radius: 0.5rem;
-        right: calc($card-side-padding + 1.25rem);
-        top: -108%;
-        transform: translateX(50%);
-        z-index: 2;
-
-        &::after {
-          content: "";
-          position: absolute;
-          width: 0;
-          height: 0;
-          top: 98%; //fix weird 1px gap :(
-          left: 50%;
-          transform: translateX(-50%);
-          border-left: 0.85rem solid transparent;
-          border-right: 0.85rem solid transparent;
-          border-top: 0.85rem solid colors.$dark-blue;
-        }
-      }
+      transition: opacity 600ms;
     }
   }
 }
